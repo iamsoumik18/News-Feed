@@ -1,0 +1,123 @@
+package com.example.newsfeed;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.content.Intent;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.ProgressBar;
+
+public class Detailed extends AppCompatActivity {
+
+    WebView webView;
+    ProgressBar loader;
+    Dialog dialog;
+    Button back;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detailed);
+
+        webView = findViewById(R.id.webView);
+        dialog = new Dialog(Detailed.this);
+
+        loader = findViewById(R.id.webViewLoader);
+        loader.setVisibility(View.VISIBLE);
+
+        back = findViewById(R.id.back);
+
+        Intent intent = getIntent();
+
+        String url = intent.getStringExtra("url");
+
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setLoadsImagesAutomatically(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl(url);
+
+        if (webView.isShown()){
+            loader.setVisibility(View.INVISIBLE);
+        }
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Detailed.super.onBackPressed();
+            }
+        });
+
+    }
+    public void ShowPopup(View v) {
+        Button close;
+        Button github;
+        Button linkedIn;
+        Button insta;
+        dialog.setContentView(R.layout.popup);
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        close =(Button) dialog.findViewById(R.id.buttonclose);
+        github = (Button) dialog.findViewById(R.id.github);
+        linkedIn = (Button) dialog.findViewById(R.id.linkedIn);
+        insta = (Button) dialog.findViewById(R.id.insta);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        github.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.github.com/iamsoumik18");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setPackage("com.github.android");
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/iamsoumik18")));
+                }
+            }
+        });
+
+        linkedIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setPackage("com.linkedin.android");
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191")));
+                }
+
+            }
+        });
+
+        insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://instagram.com/_u/iiamsoumik");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setPackage("com.instagram.android");
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/iiamsoumik")));
+                }
+            }
+        });
+    }
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="475dp"
+    android:background="#3b3b3b"
+    android:padding="5dp"
+    android:layout_gravity="center">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_baseline_close_24"
+        android:layout_gravity="end"
+        android:gravity="center"
+        android:id="@+id/buttonclose"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/myimage"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soumik Saha"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="@font/aclonica"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lead Developer"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginTop="55dp"
+        android:text="Follow Me on:"
+        android:layout_gravity="center_horizontal"/>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2.5dp"
+            android:background="#333333"
+            android:layout_width="0dp"
+            android:layout_height="100dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/github"
+                android:layout_margin="20dp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="2.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="0dp"
+            android:background="#0077b5"
+            android:layout_height="100dp">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/linkedIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:background="@drawable/linkedin"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="2.5dp"
+            android:background="#e1306c"
+            android:layout_height="100dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/insta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/instagram"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
