@@ -14,6 +14,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class Detailed extends AppCompatActivity {
 
@@ -21,6 +23,7 @@ public class Detailed extends AppCompatActivity {
     ProgressBar loader;
     Dialog dialog;
     Button back;
+    TextView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,8 @@ public class Detailed extends AppCompatActivity {
 
         webView = findViewById(R.id.webView);
         dialog = new Dialog(Detailed.this);
+
+        home = findViewById(R.id.home2);
 
         loader = findViewById(R.id.webViewLoader);
         loader.setVisibility(View.VISIBLE);
@@ -39,6 +44,15 @@ public class Detailed extends AppCompatActivity {
 
         String url = intent.getStringExtra("url");
 
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Detailed.this, MainActivity.class);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
+
         webView.getSettings().setDomStorageEnabled(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadsImagesAutomatically(true);
@@ -46,7 +60,7 @@ public class Detailed extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(url);
 
-        if (webView.isShown()){
+        if(webView.isShown()){
             loader.setVisibility(View.INVISIBLE);
         }
 
@@ -80,13 +94,13 @@ public class Detailed extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.github.com/link");
+                Uri uri = Uri.parse("https://www.github.com/iamsoumik18");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.github.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/link")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/iamsoumik18")));
                 }
             }
         });
@@ -94,13 +108,13 @@ public class Detailed extends AppCompatActivity {
         linkedIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.linkedin.com/in/link");
+                Uri uri = Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.linkedin.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/link")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191")));
                 }
 
             }
@@ -109,13 +123,13 @@ public class Detailed extends AppCompatActivity {
         insta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://instagram.com/_u/link");
+                Uri uri = Uri.parse("http://instagram.com/_u/iiamsoumik");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.instagram.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/link")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/iiamsoumik")));
                 }
             }
         });

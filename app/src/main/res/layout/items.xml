@@ -14,81 +14,104 @@
         app:cardElevation="4dp"
         app:cardCornerRadius="6dp">
 
-
-
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="340dp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_gravity="top"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/gradient">
 
             <ProgressBar
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                app:layout_constraintTop_toTopOf="@+id/image"
+                app:layout_constraintLeft_toLeftOf="@+id/image"
+                app:layout_constraintRight_toRightOf="@+id/image"
+                app:layout_constraintBottom_toBottomOf="@+id/image"
                 android:id="@+id/loader"/>
 
             <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/gradient"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TITLE"
-                android:padding="10dp"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:id="@+id/tvTitle"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_gravity="bottom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_gravity="bottom">
+                android:background="#333333"
+                android:layout_height="140dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Source"
-                    android:textSize="15dp"
-                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:id="@+id/tvSource"/>
-
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/share"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_baseline_share_24"
-                    app:layout_constraintRight_toLeftOf="@id/tvDate"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5 hour ago"
-                    android:textSize="15dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="TITLE"
+                    android:autoSizeTextType="uniform"
+                    android:padding="10dp"
+                    android:textSize="20dp"
                     android:textColor="@color/white"
-                    android:id="@+id/tvDate"/>
+                    android:id="@+id/tvTitle"/>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Source"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/tvSource"/>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/share"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_baseline_share_24"
+                        app:layout_constraintRight_toLeftOf="@id/tvDate"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5 hour ago"
+                        android:textSize="15dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:textColor="@color/white"
+                        android:id="@+id/tvDate"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </FrameLayout>
 
     </androidx.cardview.widget.CardView>

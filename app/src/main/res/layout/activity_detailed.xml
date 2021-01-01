@@ -24,13 +24,16 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="NEWS FEED"
+            android:id="@+id/home2"
+            android:clickable="true"
             android:layout_weight="10"
+            android:autoSizeTextType="uniform"
             android:fontFamily="@font/alfa_slab_one"
             android:textColor="#333333"
             android:textSize="20sp"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="80dp"
             android:padding="10dp"
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"/>
@@ -38,6 +41,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/ic_info_24"
             android:backgroundTint="#333333"

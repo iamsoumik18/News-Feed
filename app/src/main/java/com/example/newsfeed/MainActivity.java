@@ -24,6 +24,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.newsfeed.Model.Articles;
 import com.example.newsfeed.Model.Headlines;
@@ -42,9 +43,10 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
     EditText etQuery;
+    TextView homeText;
     Button btnSearch,btnAboutUs,retry;
     Dialog dialog;
-    final String API_KEY = "API_KEY";
+    final String API_KEY = "4a061b9e00624a9d968d625f72b9bf10";
     Adapter adapter;
     List<Articles>  articles = new ArrayList<>();
     LinearLayout errorLayout, mainLayout;
@@ -66,9 +68,20 @@ public class MainActivity extends AppCompatActivity {
 
         errorLayout = findViewById(R.id.error_layout);
         mainLayout = findViewById(R.id.main_layout);
+        homeText = findViewById(R.id.home);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         final String country = getCountry();
+
+        homeText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etQuery.setText("");
+                etQuery.setCursorVisible(false);
+                etQuery.setHint("Search");
+                retrieveJson("",country,API_KEY);
+            }
+        });
 
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -77,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 retrieveJson("",country,API_KEY);
             }
         });
+
         retrieveJson("",country,API_KEY);
 
         etQuery.setOnFocusChangeListener(new View.OnFocusChangeListener(){
@@ -190,13 +204,13 @@ public class MainActivity extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.github.com/link");
+                Uri uri = Uri.parse("https://www.github.com/iamsoumik18");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.github.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/link")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/iamsoumik18")));
                 }
             }
         });
@@ -204,13 +218,13 @@ public class MainActivity extends AppCompatActivity {
         linkedIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.linkedin.com/in/link");
+                Uri uri = Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.linkedin.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/link")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191")));
                 }
 
             }
@@ -219,13 +233,13 @@ public class MainActivity extends AppCompatActivity {
         insta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://instagram.com/_u/link");
+                Uri uri = Uri.parse("http://instagram.com/_u/iiamsoumik");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.instagram.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/link")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/iiamsoumik")));
                 }
             }
         });
