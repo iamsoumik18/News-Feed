@@ -94,13 +94,13 @@ public class Detailed extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.github.com/iamsoumik18");
+                Uri uri = Uri.parse("https://www.github.com/PROFILE_ID");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.github.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/iamsoumik18")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/PROFILE_ID")));
                 }
             }
         });
@@ -108,13 +108,13 @@ public class Detailed extends AppCompatActivity {
         linkedIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191");
+                Uri uri = Uri.parse("http://www.linkedin.com/in/PROFILE_ID");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.linkedin.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/PROFILE_ID")));
                 }
 
             }
@@ -123,13 +123,13 @@ public class Detailed extends AppCompatActivity {
         insta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://instagram.com/_u/iiamsoumik");
+                Uri uri = Uri.parse("http://instagram.com/_u/PROFILE_ID");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.instagram.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/iiamsoumik")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/PROFILE_ID")));
                 }
             }
         });
