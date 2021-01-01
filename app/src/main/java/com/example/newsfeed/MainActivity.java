@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     TextView homeText;
     Button btnSearch,btnAboutUs,retry;
     Dialog dialog;
-    final String API_KEY = "4a061b9e00624a9d968d625f72b9bf10";
+    final String API_KEY = "YOUR API KEY";
     Adapter adapter;
     List<Articles>  articles = new ArrayList<>();
     LinearLayout errorLayout, mainLayout;
@@ -204,13 +204,13 @@ public class MainActivity extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.github.com/iamsoumik18");
+                Uri uri = Uri.parse("https://www.github.com/PROFILE_ID");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.github.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/iamsoumik18")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.github.com/PROFILE_ID")));
                 }
             }
         });
@@ -218,13 +218,13 @@ public class MainActivity extends AppCompatActivity {
         linkedIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191");
+                Uri uri = Uri.parse("http://www.linkedin.com/in/PROFILE_ID");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.linkedin.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/soumik-saha-112379191")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.linkedin.com/in/PROFILE_ID")));
                 }
 
             }
@@ -233,13 +233,13 @@ public class MainActivity extends AppCompatActivity {
         insta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://instagram.com/_u/iiamsoumik");
+                Uri uri = Uri.parse("http://instagram.com/_u/PROFILE_ID");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setPackage("com.instagram.android");
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/iiamsoumik")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/PROFILE_ID")));
                 }
             }
         });
