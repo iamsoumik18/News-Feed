@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.newsfeed.Model.Articles;
-import com.squareup.picasso.Picasso;
 
 import org.ocpsoft.prettytime.PrettyTime;
 
@@ -50,7 +50,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String imageUrl = a.getUrlToImage();
         String url = a.getUrl();
 
-        Picasso.get().load(imageUrl).error(R.drawable.error_replace_thumb).resize(852,480).into(holder.imageView);
+        Glide.with(context).load(imageUrl).error(R.drawable.error_replace_thumb).override(852,480).into(holder.imageView);
 
         holder.tvTitle.setText(a.getTitle());
         holder.tvSource.setText(a.getSource().getName());
