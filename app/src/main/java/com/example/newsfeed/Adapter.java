@@ -50,7 +50,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String imageUrl = a.getUrlToImage();
         String url = a.getUrl();
 
-        Picasso.with(context).load(imageUrl).into(holder.imageView);
+        Picasso.get().load(imageUrl).error(R.drawable.error_replace_thumb).resize(852,480).into(holder.imageView);
 
         holder.tvTitle.setText(a.getTitle());
         holder.tvSource.setText(a.getSource().getName());
