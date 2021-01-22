@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
@@ -107,18 +108,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         PrettyTime prettyTime = new PrettyTime(new Locale(""));
         String time = null;
         try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             Date date = simpleDateFormat.parse(t);
             time = prettyTime.format(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return time;
-    }
-
-    public String getCountry(){
-        Locale locale = Locale.getDefault();
-        String country = String.valueOf(locale.getCountry());
-        return country.toLowerCase();
     }
 }
