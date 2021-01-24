@@ -1,5 +1,6 @@
 package com.example.newsfeed;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     TextView homeText;
     Button btnSearch,btnAboutUs,retry;
     Dialog dialog;
-    final String API_KEY = "YOUR KEY";
+    final String API_KEY = "YOUR API KEY";
     Adapter adapter;
     List<Articles>  articles = new ArrayList<>();
     LinearLayout errorLayout, mainLayout;
@@ -142,9 +144,9 @@ public class MainActivity extends AppCompatActivity {
         swipeRefreshLayout.setRefreshing(true);
         Call<Headlines> call;
         if (!etQuery.getText().toString().equals("")){
-            call= ApiClient.getInstance().getApi().getSpecificData(query,apiKey);
+            call= ApiClient.getInstance().getApi().getSpecificData(query,apiKey,"100");
         }else{
-            call= ApiClient.getInstance().getApi().getHeadlines(country,apiKey);
+            call= ApiClient.getInstance().getApi().getHeadlines(country,apiKey,"100");
         }
 
         call.enqueue(new Callback<Headlines>() {

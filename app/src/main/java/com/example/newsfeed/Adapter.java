@@ -45,11 +45,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
-
         final Articles a = articles.get(position);
 
         String imageUrl = a.getUrlToImage();
-        String url = a.getUrl();
 
         Glide.with(context).load(imageUrl).error(R.drawable.error_replace_thumb).override(852,480).into(holder.imageView);
 
