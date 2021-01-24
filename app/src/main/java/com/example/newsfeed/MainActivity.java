@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     TextView homeText;
     Button btnSearch,btnAboutUs,retry;
     Dialog dialog;
-    final String API_KEY = "4a061b9e00624a9d968d625f72b9bf10";
+    final String API_KEY = "YOUR KEY";
     Adapter adapter;
     List<Articles>  articles = new ArrayList<>();
     LinearLayout errorLayout, mainLayout;
